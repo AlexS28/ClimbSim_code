@@ -42,6 +42,9 @@ Special thanks to: Feng Xu for creating the initial urdf files and part of the s
   pages={5632-5639},
   doi={10.1109/IROS47612.2022.9981555}}
   
+TELEOPERATION CONTROLS:
+![controller_pic](https://user-images.githubusercontent.com/45216484/228128498-df4d9325-ccb0-4a3b-a78c-03ba3c310ff3.png)
+
 PYBULLET SIMULATION:
 ![Screenshot from 2023-02-01 12-59-01](https://user-images.githubusercontent.com/45216484/217660797-214e26ab-aa44-401f-a720-bfeecc94b546.png)
 
