@@ -1,3 +1,5 @@
+# Author: Alexander Schperberg, aschperb@gmail.com
+# Date: 2023-03-27
 #!/usr/bin/env python
 import pybullet as p
 import pybullet_data

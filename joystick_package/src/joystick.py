@@ -1,3 +1,5 @@
+# Author: Alexander Schperberg, aschperb@gmail.com
+# Date: 2023-03-27
 import numpy as np
 import rospy
 from sensor_msgs.msg import Joy

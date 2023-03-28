@@ -1,9 +1,6 @@
-""" Robotics and Mechanisms Laboratory
-% 2022
-% Alexander Schperberg
-% aschperb@gmail.com
-% 01/23/23
-"""
+# Author: Alexander Schperberg, aschperb@gmail.com
+# Date: 2023-03-27
+
 import multiprocessing
 import utils.processes.pybullet_process as pybullet
 import time

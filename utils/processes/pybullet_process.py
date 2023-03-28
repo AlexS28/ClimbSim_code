@@ -1,3 +1,6 @@
+# Author: Alexander Schperberg, aschperb@gmail.com
+# Date: 2023-03-27
+
 from sim.pybullet.scalar_sim import pyb_sim
 from utils.urdf_relative_path import urdf_filepath_resolver
 from pathlib import Path

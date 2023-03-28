@@ -1,3 +1,5 @@
+# Author: Alexander Schperberg, aschperb@gmail.com
+# Date: 2023-03-27
 import time
 import sys
 import os
