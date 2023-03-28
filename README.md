@@ -12,6 +12,22 @@ This repository creates a robot climbing simulator that runs in pybullet, and ca
 
 [1] Planner for Robotic Free-Climbing using Reinforcement Learning, by Alexander Schperberg (author list / title to be updated).
 
+System tested: Ubuntu 20.04, ROS Noetic, Python 3.8
+# Installation:
+1. Install ROS Noetic (potentially ROS Melodic may also work, but it has not been tested)
+2. `sudo apt-get install ros-noetic-desktop-full`
+3. `sudo apt-get install ros-noetic-joy`
+4. mkdir -p ~/catkin_ws/src
+5. git clone this repository inside the src folder
+5. cd ~/catkin_ws/
+6. catkin_make
+7. `pip install -r requirements.txt`
+
+# What to run:
+1. For teleoperation, in one terminal, run the following command: 
+`roslaunch joystick_package joystick.launch`. In another terminal, run 
+`python start_teleporation.py` 
+
 [2] SCALER: A Tough Versatile Quadruped Free-Climber Robot by Yusuke Tanaka, Yuki Shirai, Xuan Lin, Alexander Schperberg, Hayato Kato, Alexander Swerdlow, Naoya Kumagai, and Dennis Hong.
 
 [2] @INPROCEEDINGS{9981555,
