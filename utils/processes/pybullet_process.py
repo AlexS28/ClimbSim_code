@@ -17,7 +17,7 @@ class PYBULLET:
         MESH_DIR = 'sim/pybullet/urdf_scalar_6DoF/meshes/'
         full_path = Path.cwd().joinpath(URDF_PATH)
         urdf_filename = urdf_filepath_resolver(full_path, MESH_DIR)
-        urdf_file_path_wall = 'sim/pybullet/urdf_scalar_6DoF/urdf/temp_wall_camera_manyholds.urdf'
+        urdf_file_path_wall = 'sim/pybullet/urdf_scalar_6DoF/urdf/wall_camera_manyholds.urdf'
         urdf_file_path_wall = str(Path.cwd().joinpath(urdf_file_path_wall))
         # specify starting position
         self.robot = pyb_sim(urdf_filename, urdf_file_path_wall, bodyFixed=False, RobotStartPos=[0.0,0.0,0.55])

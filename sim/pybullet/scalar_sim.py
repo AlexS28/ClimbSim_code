@@ -44,8 +44,6 @@ class pyb_sim(object):
         self.urdf_filename = urdf_filename
         # define the wall and initial bouldering holds here
         self.urdf_filename_wall = urdf_filename_wall
-        # define the moving holds here
-        self.urdf_hold_1 = self.urdf_filename_wall.split('temp_wall_camera_manyholds.urdf')[0]+'hold_1.urdf'
         self.RobotStartPos = RobotStartPos
         self.RobotStartOrientation = p.getQuaternionFromEuler(RobotStartOrientation)
         self.delta_t = delta_t
@@ -191,21 +189,6 @@ class pyb_sim(object):
                 self.joint_space_limit_reached[i] = cur_list
 
         return self.joint_space_limit_reached
-
-    def joint_limits2(self, cur_joints):
-        self.joint_space_limit_reached2 = [[False, False]] * 6
-        for i in range(len(cur_joints)):
-            if cur_joints[i] < self.joint_limits_list2[i][0]:
-                cur_list = copy.deepcopy(self.joint_space_limit_reached2[i])
-                cur_list[0] = True
-                self.joint_space_limit_reached2[i] = cur_list
-
-            elif cur_joints[i] > self.joint_limits_list2[i][1]:
-                cur_list = copy.deepcopy(self.joint_space_limit_reached2[i])
-                cur_list[1] = True
-                self.joint_space_limit_reached2[i] = cur_list
-
-        return self.joint_space_limit_reached2
 
     def correct_cmd_body(self, pose_body_motor, cmd_vel_body_motor):
         # impose constraints on body motor
@@ -582,11 +565,6 @@ class pyb_sim(object):
         CoM_T_urdf = np.linalg.inv(urdf_T_CoM)
 
         return np.dot(world_T_CoM, CoM_T_urdf)
-
-
-    def move_obstacle(self, wall_id, wall_pos, wall_orientation):
-        # Move the hold1 link to a new position and orientation
-        p.resetBasePositionAndOrientation(wall_id, wall_pos, wall_orientation)
 
     def check_obstacle_goal(self, leg):
         # we now get our pose measurement from pybullet
