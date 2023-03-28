@@ -46,7 +46,8 @@ TELEOPERATION CONTROLS:
 ![controller_pic](https://user-images.githubusercontent.com/45216484/228128498-df4d9325-ccb0-4a3b-a78c-03ba3c310ff3.png)
 
 PYBULLET SIMULATION:
-![Screenshot from 2023-02-01 12-59-01](https://user-images.githubusercontent.com/45216484/217660797-214e26ab-aa44-401f-a720-bfeecc94b546.png)
+![scaler_pybullet](https://user-images.githubusercontent.com/45216484/228128792-0e7c5af4-88ba-447f-bd9d-e62b83d4b410.jpg)
+![scaler_pybullet_image](https://user-images.githubusercontent.com/45216484/228128799-3eeca61f-751b-45f8-8be6-2d697cc8a326.jpg)
 
 SCALER HARDWARE:
 ![fig1](https://user-images.githubusercontent.com/45216484/217659832-07cfde0b-ca75-406e-838b-7c108fecc7cc.jpg)
