@@ -88,6 +88,7 @@ def activate(event_shutdown):
     pose_gripper_list = []
     prev_ang_list = []
     wrist_joints_list = []
+
     for leg in range(4):
         pose_T = np.zeros((4,4))
         pose_T[:,:] = pybullet_object.home_pose_T_list[leg]
