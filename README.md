@@ -21,11 +21,14 @@ Special thanks to: Feng Xu for creating the initial urdf files and part of the s
 5. git clone this repository inside the src folder
 5. cd ~/catkin_ws/
 6. catkin_make
+7. cd ~/catkin_ws/src/ClimbSim/
 7. `pip install -r requirements.txt`
 
 # How to run:
-1. Terminal 1: `roslaunch joystick_package joystick.launch` 
-2. Terminal 2: `python start_teleporation.py` 
+0. Terminal 1: cd ~/catkin_ws/
+1. `source devel/setup.bash`
+2. `roslaunch joystick_package joystick.launch` 
+3. Terminal 2: `python start_teleporation.py` 
 
 [2] SCALER: A Tough Versatile Quadruped Free-Climber Robot by Yusuke Tanaka, Yuki Shirai, Xuan Lin, Alexander Schperberg, Hayato Kato, Alexander Swerdlow, Naoya Kumagai, and Dennis Hong.
 
