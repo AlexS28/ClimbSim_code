@@ -1,16 +1,13 @@
 # ClimbSim
 (WORK IN PROGRESS) 
-# Timeline for repo updates:
+# Timeline for future repo updates:
 
-# First update: Simple teleoperation example for a climbing robot (March 27th 2023)
-# Second update: Add more features to the simulation (additional bouldering holds, reset simulation functionality, etc) (~April 2023)
-# Third update: Add Planner that uses Reinforcement Learning (~June 2023) along with Paper on Arxiv
+# Add more features to the simulation (additional bouldering holds, reset simulation functionality, etc) (~April-May 2023)
+# Add Planner that uses Reinforcement Learning (~June 2023) along with Paper on Arxiv
 
 This repository creates a robot climbing simulator that runs in pybullet, and can be used with an Xbox controller for teleoperation. The simulator is based on the robot, SCALER (Spine-enhanced Climbing Autonomous Legged Exploration Robot), from the Robotics and Mechanisms Laboratory at UCLA - see reference [2] below. The paper on the simulator and use of reinforcement learning using this simulator will be written in citation [1] (currently work in progress)
 
-# Please also cite [1] if you plan to use the simulator, feel free to email for questions at aschperb@gmai.com
-
-[1] Planner for Robotic Free-Climbing using Reinforcement Learning, by Alexander Schperberg (author list / title to be updated).
+# Please also cite [1] if you plan to use the simulator, for questions or if you'd like to contribute to the repo, email: aschperb@gmail.com
 
 System tested: Ubuntu 20.04, ROS Noetic, Python 3.8
 # Installation:
@@ -23,10 +20,11 @@ System tested: Ubuntu 20.04, ROS Noetic, Python 3.8
 6. catkin_make
 7. `pip install -r requirements.txt`
 
-# What to run:
-1. For teleoperation, in one terminal, run the following command: 
-`roslaunch joystick_package joystick.launch`. In another terminal, run 
-`python start_teleporation.py` 
+# How to run:
+1. Terminal 1: `roslaunch joystick_package joystick.launch` 
+2. Terminal 2: `python start_teleporation.py` 
+
+[1] Planner for Robotic Free-Climbing using Reinforcement Learning, by Alexander Schperberg (author list / title to be updated).
 
 [2] SCALER: A Tough Versatile Quadruped Free-Climber Robot by Yusuke Tanaka, Yuki Shirai, Xuan Lin, Alexander Schperberg, Hayato Kato, Alexander Swerdlow, Naoya Kumagai, and Dennis Hong.
 
