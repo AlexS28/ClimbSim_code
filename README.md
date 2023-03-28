@@ -2,8 +2,8 @@
 (WORK IN PROGRESS) 
 Timeline for future repo updates:
 
-**Add more features to the simulation (additional bouldering holds, reset simulation functionality, etc) (~April-May 2023)**
-**Add Planner that uses Reinforcement Learning (~June 2023) along with Paper on Arxiv**
+1. **Add more features to the simulation (additional bouldering holds, reset simulation functionality, etc) (~April-May 2023)**
+2. **Add Planner that uses Reinforcement Learning (~June 2023) along with Paper on Arxiv**
 
 This repository creates a robot climbing simulator that runs in pybullet, and can be used with an Xbox controller for teleoperation. The simulator is based on the robot, SCALER (Spine-enhanced Climbing Autonomous Legged Exploration Robot), from the Robotics and Mechanisms Laboratory at UCLA - see reference [2] below. The paper on the simulator and use of reinforcement learning using this simulator will be written in citation [1] (currently work in progress)
 
