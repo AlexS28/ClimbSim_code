@@ -25,10 +25,11 @@ Special thanks to: Feng Xu for creating the initial urdf files and part of the s
 7. `pip install -r requirements.txt`
 
 # How to run:
-0. Terminal 1: cd ~/catkin_ws/
-1. `source devel/setup.bash`
-2. `roslaunch joystick_package joystick.launch` 
-3. Terminal 2: `python start_teleporation.py` 
+0. Plug in Xbox Series X or Xbox 360 controller (other joysticks likely to also work, but button mapping will differ)
+1. Terminal 1: cd ~/catkin_ws/
+2. `source devel/setup.bash`
+3. `roslaunch joystick_package joystick.launch` 
+4. Terminal 2: `python start_teleporation.py` 
 
 [2] SCALER: A Tough Versatile Quadruped Free-Climber Robot by Yusuke Tanaka, Yuki Shirai, Xuan Lin, Alexander Schperberg, Hayato Kato, Alexander Swerdlow, Naoya Kumagai, and Dennis Hong.
 
