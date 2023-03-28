@@ -8,6 +8,7 @@ Timeline for future repo updates:
 This repository creates a robot climbing simulator that runs in pybullet, and can be used with an Xbox controller for teleoperation. The simulator is based on the robot, SCALER (Spine-enhanced Climbing Autonomous Legged Exploration Robot), from the Robotics and Mechanisms Laboratory at UCLA - see reference [2] below. The paper on the simulator and use of reinforcement learning using this simulator will be written in citation [1] (currently work in progress)
 
 # Please also cite [1] if you plan to use the simulator, for questions or if you'd like to contribute to the repo, email: aschperb@gmail.com
+[1] Planner for Robotic Free-Climbing using Reinforcement Learning, by Alexander Schperberg (author list / title to be updated).
 
 System tested: Ubuntu 20.04, ROS Noetic, Python 3.8
 # Installation:
@@ -24,8 +25,6 @@ System tested: Ubuntu 20.04, ROS Noetic, Python 3.8
 1. Terminal 1: `roslaunch joystick_package joystick.launch` 
 2. Terminal 2: `python start_teleporation.py` 
 
-[1] Planner for Robotic Free-Climbing using Reinforcement Learning, by Alexander Schperberg (author list / title to be updated).
-
 [2] SCALER: A Tough Versatile Quadruped Free-Climber Robot by Yusuke Tanaka, Yuki Shirai, Xuan Lin, Alexander Schperberg, Hayato Kato, Alexander Swerdlow, Naoya Kumagai, and Dennis Hong.
 
 [2] @INPROCEEDINGS{9981555,
@@ -37,6 +36,8 @@ System tested: Ubuntu 20.04, ROS Noetic, Python 3.8
   number={},
   pages={5632-5639},
   doi={10.1109/IROS47612.2022.9981555}}
+  
+Special thanks to: Feng Xu for creating the urdf files and initial simulation code, and the SCALER team: Yuki Shirai, and Yusuke Tanaka. 
 
 PYBULLET SIMULATION:
 ![Screenshot from 2023-02-01 12-59-01](https://user-images.githubusercontent.com/45216484/217660797-214e26ab-aa44-401f-a720-bfeecc94b546.png)
