@@ -12,8 +12,8 @@ This repository creates a robot climbing simulator that runs in pybullet, and ca
 
 Special thanks to: Feng Xu for creating the urdf files and initial simulation code, and the SCALER team: Yuki Shirai, and Yusuke Tanaka. 
 
-System tested: Ubuntu 20.04, ROS Noetic, Python 3.8
 # Installation:
+0. System tested: Ubuntu 20.04, ROS Noetic, Python 3.8
 1. Install ROS Noetic (potentially ROS Melodic may also work, but it has not been tested)
 2. `sudo apt-get install ros-noetic-desktop-full`
 3. `sudo apt-get install ros-noetic-joy`
