@@ -1,0 +1,246 @@
+<robot name="wall_with_hold">
+  
+  <material name="brown">
+    <color rgb="205 127 50" />
+  </material>
+  <material name="gray">
+    <color rgba="0.5 0.5 0.5 1" />
+  </material>
+
+  
+  <link name="wall">
+    
+    <visual>
+      <geometry>
+        <box size="1 2 0.1" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1 2 0.1" />
+      </geometry>
+    </collision>
+    <inertial>
+      
+      <mass value="10" />
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+  </link>
+    <link name="parent_link">
+
+  
+   <inertial>
+    
+    <mass value="0" />
+    <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+   </inertial>
+  </link>
+  <joint name="wall_joint" type="fixed">
+    <parent link="parent_link" />
+    <child link="wall" />
+    <origin xyz="0 0 0" rpy="0 0 0.0" />
+  </joint>
+
+  <link name="hold1">
+    
+    <visual>
+      <geometry>
+        <box size="0.05 0.07 0.15" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.07 0.15" />
+      </geometry>
+    </collision>
+    <inertial>
+      
+      <mass value="1" />
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+  </link>
+
+  <link name="hold2">
+    
+    <visual>
+      <geometry>
+        <box size="0.05 0.07 0.15" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.07 0.15" />
+      </geometry>
+    </collision>
+    <inertial>
+      
+      <mass value="1" />
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+  </link>
+
+    <link name="hold3">
+    
+    <visual>
+      <geometry>
+        <box size="0.05 0.07 0.15" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.07 0.15" />
+      </geometry>
+    </collision>
+    <inertial>
+      
+      <mass value="1" />
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+  </link>
+
+  <link name="hold4">
+    
+    <visual>
+      <geometry>
+        <box size="0.05 0.07 0.15" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.07 0.15" />
+      </geometry>
+    </collision>
+    <inertial>
+      
+      <mass value="1" />
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+  </link>
+
+  <link name="hold5">
+    
+    <visual>
+      <geometry>
+        <box size="0.05 0.07 0.0" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.07 0.0" />
+      </geometry>
+    </collision>
+    <inertial>
+      
+      <mass value="1" />
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+  </link>
+
+  
+  <joint name="wall_hold_joint" type="fixed">
+    
+    <origin xyz="-0.12 0.32 0.07" rpy="3.14 0 0.0" />
+    <parent link="wall" />
+    <child link="hold1" />
+  </joint>
+
+  <joint name="wall_hold_joint2" type="fixed">
+    
+    <origin xyz="0.12 0.42 0.07" rpy="3.14 0 0.0" />
+    <parent link="wall" />
+    <child link="hold2" />
+  </joint>
+
+  <joint name="wall_hold_joint3" type="fixed">
+    
+    <origin xyz="0.12 -0.32 0.07" rpy="3.14 0 0.0" />
+    <parent link="wall" />
+    <child link="hold3" />
+  </joint>
+
+  <joint name="wall_hold_joint4" type="fixed">
+    
+    <origin xyz="-0.12 -0.32 0.07" rpy="3.14 0 0.0" />
+    <parent link="wall" />
+    <child link="hold4" />
+  </joint>
+
+  <joint name="wall_hold_joint5" type="fixed">
+    
+    <origin xyz="-0.12 0.5 0.07" rpy="3.14 0 0.0" />
+    <parent link="wall" />
+    <child link="hold5" />
+  </joint>
+
+  
+  <joint name="body_camera_joint" type="fixed">
+    <parent link="wall" />
+    <child link="body_camera_link" />
+        <origin xyz="0 0.2 .65" rpy="0 0 0" />
+  </joint>
+
+  <link name="body_camera_link">
+      <visual>
+          <geometry>
+              <box size="0.03 0.03 0.01" />
+          </geometry>
+          <material name="red">
+            <color rgba="1.0 0.0 0.0 1.0" />
+          </material>
+      </visual>
+      <sensor name="bodyCamera" type="camera">
+        <origin xyz="0 0 0" rpy="0 -90 0" />
+        <camera name="camera_sensor">
+          <horizontal_fov>60</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+      </camera>
+    </sensor>
+  </link>
+
+  <joint name="above_camera_joint" type="floating">
+      <parent link="wall" />
+      <child link="above_camera_link" />
+      <origin xyz="0 0 2" rpy="0 0 0" />
+  </joint>
+
+  <link name="above_camera_link">
+      <visual>
+          <geometry>
+              <box size="0.03 0.03 0.01" />
+          </geometry>
+          <material name="red">
+            <color rgba="1.0 0.0 0.0 1.0" />
+          </material>
+      </visual>
+      <sensor name="bodyCamera" type="camera">
+        <origin xyz="0 0 2" rpy="0 -90 0" />
+        <camera name="camera_sensor">
+          <horizontal_fov>60</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+      </camera>
+    </sensor>
+  </link>
+
+</robot>

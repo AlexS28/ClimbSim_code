@@ -1,0 +1,16 @@
+pip==23.0
+cython==0.29.14
+markdown==3.4.1
+markupsafe==2.1.2
+matplotlib==3.1.2
+scipy==1.5.2
+transformations==2022.9.26
+git+https://github.com/qaz1678249/scalar_kinematics.git@cd34a29ebe1d506e33423f08f74f1412c5f995eb
+pybullet==3.2.5
+numpy==1.24.2
+pandas==1.5.3
+Pillow==7.0.0
+rospkg
+rosdistro
+catkin_pkg
+empy
