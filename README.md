@@ -9,6 +9,7 @@ This repository creates a robot climbing simulator that runs in pybullet, and ca
 
 # Please also cite [1] if you plan to use the simulator, for questions or if you'd like to contribute to the repo, email: aschperb@gmail.com
 [1] Planner for Robotic Free-Climbing using Reinforcement Learning, by Alexander Schperberg (author list / title to be updated).
+
 Special thanks to: Feng Xu for creating the urdf files and initial simulation code, and the SCALER team: Yuki Shirai, and Yusuke Tanaka. 
 
 System tested: Ubuntu 20.04, ROS Noetic, Python 3.8
