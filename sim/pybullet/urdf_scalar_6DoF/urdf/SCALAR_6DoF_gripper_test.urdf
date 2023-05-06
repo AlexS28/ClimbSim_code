@@ -2162,221 +2162,178 @@
 
 
 
+<!--  Start of GOAT 0 -->
 
 
-
- <!-- BASE LINK FOR GRIPPER 0 -->
- <link name="base_link_gripper0">
-      <inertial>
-          <mass value="1.2" />
-          <origin xyz="0 0 0" />
-     	  <!--inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="100.0" iyz="0.0"
-               izz="1.0" /-->
-      	  <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG50_110.stl" scale="1 1 1"/>
-	     <!--box size="0.146 0.05 0.0735"/-->
-          </geometry>
-          <material name="grey">
-		<color rgba="0.5 0.5 0.5 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.146 0.05 0.0735"/-->
-             <mesh filename="WSG50_110.stl" scale="1.0 1.0 1.0"/>
-         </geometry>
-     </collision>
+  <link
+    name="base_link_gripper0">
+    <inertial>
+      <origin
+        xyz="-0.00055548 0.035313 0.012179"
+        rpy="0 0 0" />
+      <mass
+        value="0.067952" />
+      <inertia
+        ixx="2.1362E-05"
+        ixy="-1.3103E-07"
+        ixz="6.2634E-09"
+        iyy="6.8913E-06"
+        iyz="2.5903E-07"
+        izz="2.2904E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.96471 0.95294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="base_link.STL" />
+      </geometry>
+    </collision>
   </link>
-
-
-  <!-- GRIPPER LEFT -->
-
-  <joint name="base_joint_gripper_left0" type="prismatic">
-     <limit lower="-0.055" upper="-0.0027" effort="1.0" velocity="1.0"/>
-     <origin xyz="0 0 0" rpy="0 0 0" />      <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
-     <parent link="base_link_gripper0"/>
-     <child link="gripper_left0" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
+  <link
+    name="right_finger">
+    <inertial>
+      <origin
+        xyz="0.0060787 0.029946 -0.0020409"
+        rpy="0 0 0" />
+      <mass
+        value="0.024207" />
+      <inertia
+        ixx="5.1524E-06"
+        ixy="5.7838E-07"
+        ixz="1.9253E-09"
+        iyy="3.1911E-06"
+        iyz="-5.5148E-09"
+        izz="4.6143E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="right_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74118 0.73333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="right_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_joint_gripper_right0"
+    type="prismatic">
+    <origin
+      xyz="-0.0081073 -0.007 -0.051048"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link_gripper0" />
+    <child
+      link="right_finger" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.01"
+      upper="0.065"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_finger">
+    <inertial>
+      <origin
+        xyz="0.010829 0.029946 -4.0926E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.024207" />
+      <inertia
+        ixx="5.1524E-06"
+        ixy="5.7838E-07"
+        ixz="1.9253E-09"
+        iyy="3.1911E-06"
+        iyz="-5.5148E-09"
+        izz="4.6143E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 3.14 3.14" />
+      <geometry>
+        <mesh
+          filename="left_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.96471 0.95294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="left_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_joint_gripper_left0"
+    type="prismatic">
+    <origin
+      xyz="0.0080046 -0.005 -0.055798"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link_gripper0" />
+    <child
+      link="left_finger" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.01"
+      upper="0.065"
+      effort="0"
+      velocity="0" />
   </joint>
 
-  <transmission name="base_trans_left0" type="pr2_mechanism_model/SimpleTransmission">
-     <actuator name="base_motor_left0" />
-     <joint name="base_joint_gripper_left0" />
-     <mechanicalReduction>1</mechanicalReduction>
-     <motorTorqueConstant>1</motorTorqueConstant>
-  </transmission>
 
-  <link name="gripper_left0">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-	     <!--box size="0.0175 0.03 0.024"/-->
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
+<!-- End of GOAT 0 -->
 
 
 
 
-  <!-- LEFT FINGER -->
 
-  <joint name="guide_joint_finger_left0" type="fixed">
-     <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="gripper_left0"/>
-     <child link="finger_left0" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
-  </joint>
-
-  <link name="finger_left0">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-
-  <!-- GRIPPER RIGHT -->
-
-  <joint name="base_joint_gripper_right0" type="prismatic">
-     <limit lower="0.0027" upper="0.055" effort="1.0" velocity="1.0"/>
-     <origin xyz="0 0 0" rpy="0 0 3.14159" />
-     <parent link="base_link_gripper0"/>
-     <child link="gripper_right0" />
-     <axis xyz="-1 0 0"/>
-     <dynamics friction="100" damping="100" />
-     <limit effort="10000" velocity="100"/>
-  </joint>
-
-  <transmission name="base_trans_right0" type="pr2_mechanism_model/SimpleTransmission">
-     <actuator name="base_motor_right0" />
-     <joint name="base_joint_gripper_right0" />
-     <mechanicalReduction>1</mechanicalReduction>
-     <motorTorqueConstant>1</motorTorqueConstant>
-  </transmission>
-
-    <link name="gripper_right0">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-	     <!--box size="0.0175 0.03 0.024"/-->
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-  <!-- RIGHT FINGER -->
-
-  <joint name="guide_joint_finger_right0" type="fixed">
-     <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="gripper_right0"/>
-     <child link="finger_right0" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
-  </joint>
-
-  <link name="finger_right0">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
 
   <joint name="attachment_joint0" type="fixed">
     <parent link="wrist3_Link0"/>
     <child link="base_link_gripper0"/>
-    <origin xyz="0 0 0.075" rpy="0 0 0"/>
+    <origin xyz="-0.03 0 0.075" rpy="3.14 0 1.57"/>
   </joint>
 
 
@@ -2385,667 +2342,546 @@
 
 
 
+<!--  Start of GOAT 1 -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
- <!-- BASE LINK FOR GRIPPER 1 -->
- <link name="base_link_gripper1">
-      <inertial>
-          <mass value="1.2" />
-          <origin xyz="0 0 0" />
-     	  <!--inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="100.0" iyz="0.0"
-               izz="1.0" /-->
-      	  <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG50_110.stl" scale="1 1 1"/>
-	     <!--box size="0.146 0.05 0.0735"/-->
-          </geometry>
-          <material name="grey">
-		<color rgba="0.5 0.5 0.5 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.146 0.05 0.0735"/-->
-             <mesh filename="WSG50_110.stl" scale="1.0 1.0 1.0"/>
-         </geometry>
-     </collision>
+  <link
+    name="base_link_gripper1">
+    <inertial>
+      <origin
+        xyz="-0.00055548 0.035313 0.012179"
+        rpy="0 0 0" />
+      <mass
+        value="0.067952" />
+      <inertia
+        ixx="2.1362E-05"
+        ixy="-1.3103E-07"
+        ixz="6.2634E-09"
+        iyy="6.8913E-06"
+        iyz="2.5903E-07"
+        izz="2.2904E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.96471 0.95294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="base_link.STL" />
+      </geometry>
+    </collision>
   </link>
-
-
-  <!-- GRIPPER LEFT -->
-
-  <joint name="base_joint_gripper_left1" type="prismatic">
-     <limit lower="-0.055" upper="-0.0027" effort="1.0" velocity="1.0"/>
-     <origin xyz="0 0 0" rpy="0 0 0" />      <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
-     <parent link="base_link_gripper1"/>
-     <child link="gripper_left1" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
+  <link
+    name="right_finger1">
+    <inertial>
+      <origin
+        xyz="0.0060787 0.029946 -0.0020409"
+        rpy="0 0 0" />
+      <mass
+        value="0.024207" />
+      <inertia
+        ixx="5.1524E-06"
+        ixy="5.7838E-07"
+        ixz="1.9253E-09"
+        iyy="3.1911E-06"
+        iyz="-5.5148E-09"
+        izz="4.6143E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="right_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74118 0.73333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="right_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_joint_gripper_right1"
+    type="prismatic">
+    <origin
+      xyz="-0.0081073 -0.007 -0.051048"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link_gripper1" />
+    <child
+      link="right_finger1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.01"
+      upper="0.065"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_finger1">
+    <inertial>
+      <origin
+        xyz="0.010829 0.029946 -4.0926E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.024207" />
+      <inertia
+        ixx="5.1524E-06"
+        ixy="5.7838E-07"
+        ixz="1.9253E-09"
+        iyy="3.1911E-06"
+        iyz="-5.5148E-09"
+        izz="4.6143E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 3.14 3.14" />
+      <geometry>
+        <mesh
+          filename="left_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.96471 0.95294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="left_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_joint_gripper_left1"
+    type="prismatic">
+    <origin
+      xyz="0.0080046 -0.005 -0.055798"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link_gripper1" />
+    <child
+      link="left_finger1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.01"
+      upper="0.065"
+      effort="0"
+      velocity="0" />
   </joint>
 
-  <transmission name="base_trans_left1" type="pr2_mechanism_model/SimpleTransmission">
-     <actuator name="base_motor_left1" />
-     <joint name="base_joint_gripper_left1" />
-     <mechanicalReduction>1</mechanicalReduction>
-     <motorTorqueConstant>1</motorTorqueConstant>
-  </transmission>
-
-  <link name="gripper_left1">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-	     <!--box size="0.0175 0.03 0.024"/-->
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-
-
-
-  <!-- LEFT FINGER -->
-
-  <joint name="guide_joint_finger_left1" type="fixed">
-     <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="gripper_left1"/>
-     <child link="finger_left1" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
-  </joint>
-
-  <link name="finger_left1">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-
-  <!-- GRIPPER RIGHT -->
-
-  <joint name="base_joint_gripper_right1" type="prismatic">
-     <limit lower="0.0027" upper="0.055" effort="1.0" velocity="1.0"/>
-     <origin xyz="0 0 0" rpy="0 0 3.14159" />
-     <parent link="base_link_gripper1"/>
-     <child link="gripper_right1" />
-     <axis xyz="-1 0 0"/>
-     <dynamics friction="100" damping="100" />
-     <limit effort="10000" velocity="100"/>
-  </joint>
-
-  <transmission name="base_trans_right1" type="pr2_mechanism_model/SimpleTransmission">
-     <actuator name="base_motor_right1" />
-     <joint name="base_joint_gripper_right1" />
-     <mechanicalReduction>1</mechanicalReduction>
-     <motorTorqueConstant>1</motorTorqueConstant>
-  </transmission>
-
-    <link name="gripper_right1">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-	     <!--box size="0.0175 0.03 0.024"/-->
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-  <!-- RIGHT FINGER -->
-
-  <joint name="guide_joint_finger_right1" type="fixed">
-     <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="gripper_right1"/>
-     <child link="finger_right1" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
-  </joint>
-
-  <link name="finger_right1">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
 
   <joint name="attachment_joint1" type="fixed">
     <parent link="wrist3_Link1"/>
     <child link="base_link_gripper1"/>
-    <origin xyz="0 0 0.075" rpy="0 0 3.14"/>
+    <origin xyz="0.03 0 0.075" rpy="3.14 0 1.57"/>
   </joint>
 
 
-  <!-- BASE LINK FOR GRIPPER 2 -->
- <link name="base_link_gripper2">
-      <inertial>
-          <mass value="1.2" />
-          <origin xyz="0 0 0" />
-     	  <!--inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="100.0" iyz="0.0"
-               izz="1.0" /-->
-      	  <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
-      </inertial>
 
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG50_110.stl" scale="1 1 1"/>
-	     <!--box size="0.146 0.05 0.0735"/-->
-          </geometry>
-          <material name="grey">
-		<color rgba="0.5 0.5 0.5 1"/>
-      	  </material>
-      </visual>
+<!-- End of GOAT 1 -->
 
-      <collision>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.146 0.05 0.0735"/-->
-             <mesh filename="WSG50_110.stl" scale="1.0 1.0 1.0"/>
-         </geometry>
-     </collision>
+
+
+
+
+
+
+
+
+<!--  Start of GOAT 2 -->
+
+
+  <link
+    name="base_link_gripper2">
+    <inertial>
+      <origin
+        xyz="-0.00055548 0.035313 0.012179"
+        rpy="0 0 0" />
+      <mass
+        value="0.067952" />
+      <inertia
+        ixx="2.1362E-05"
+        ixy="-1.3103E-07"
+        ixz="6.2634E-09"
+        iyy="6.8913E-06"
+        iyz="2.5903E-07"
+        izz="2.2904E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.96471 0.95294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="base_link.STL" />
+      </geometry>
+    </collision>
   </link>
-
-
-  <!-- GRIPPER LEFT -->
-
-  <joint name="base_joint_gripper_left2" type="prismatic">
-     <limit lower="-0.055" upper="-0.0027" effort="1.0" velocity="1.0"/>
-     <origin xyz="0 0 0" rpy="0 0 0" />      <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
-     <parent link="base_link_gripper2"/>
-     <child link="gripper_left2" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
+  <link
+    name="right_finger2">
+    <inertial>
+      <origin
+        xyz="0.0060787 0.029946 -0.0020409"
+        rpy="0 0 0" />
+      <mass
+        value="0.024207" />
+      <inertia
+        ixx="5.1524E-06"
+        ixy="5.7838E-07"
+        ixz="1.9253E-09"
+        iyy="3.1911E-06"
+        iyz="-5.5148E-09"
+        izz="4.6143E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="right_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74118 0.73333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="right_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_joint_gripper_right2"
+    type="prismatic">
+    <origin
+      xyz="-0.0081073 -0.007 -0.051048"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link_gripper2" />
+    <child
+      link="right_finger2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.01"
+      upper="0.065"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_finger2">
+    <inertial>
+      <origin
+        xyz="0.010829 0.029946 -4.0926E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.024207" />
+      <inertia
+        ixx="5.1524E-06"
+        ixy="5.7838E-07"
+        ixz="1.9253E-09"
+        iyy="3.1911E-06"
+        iyz="-5.5148E-09"
+        izz="4.6143E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 3.14 3.14" />
+      <geometry>
+        <mesh
+          filename="left_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.96471 0.95294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="left_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_joint_gripper_left2"
+    type="prismatic">
+    <origin
+      xyz="0.0080046 -0.005 -0.055798"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link_gripper2" />
+    <child
+      link="left_finger2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.01"
+      upper="0.065"
+      effort="0"
+      velocity="0" />
   </joint>
 
-  <transmission name="base_trans_left2" type="pr2_mechanism_model/SimpleTransmission">
-     <actuator name="base_motor_left2" />
-     <joint name="base_joint_gripper_left2" />
-     <mechanicalReduction>1</mechanicalReduction>
-     <motorTorqueConstant>1</motorTorqueConstant>
-  </transmission>
-
-  <link name="gripper_left2">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-	     <!--box size="0.0175 0.03 0.024"/-->
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-
-
-
-  <!-- LEFT FINGER -->
-
-  <joint name="guide_joint_finger_left2" type="fixed">
-     <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="gripper_left2"/>
-     <child link="finger_left2" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
-  </joint>
-
-  <link name="finger_left2">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-
-  <!-- GRIPPER RIGHT -->
-
-  <joint name="base_joint_gripper_right2" type="prismatic">
-     <limit lower="0.0027" upper="0.055" effort="1.0" velocity="1.0"/>
-     <origin xyz="0 0 0" rpy="0 0 3.14159" />
-     <parent link="base_link_gripper2"/>
-     <child link="gripper_right2" />
-     <axis xyz="-1 0 0"/>
-     <dynamics friction="100" damping="100" />
-     <limit effort="10000" velocity="100"/>
-  </joint>
-
-  <transmission name="base_trans_right2" type="pr2_mechanism_model/SimpleTransmission">
-     <actuator name="base_motor_right2" />
-     <joint name="base_joint_gripper_right2" />
-     <mechanicalReduction>1</mechanicalReduction>
-     <motorTorqueConstant>1</motorTorqueConstant>
-  </transmission>
-
-    <link name="gripper_right2">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-	     <!--box size="0.0175 0.03 0.024"/-->
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-  <!-- RIGHT FINGER -->
-
-  <joint name="guide_joint_finger_right2" type="fixed">
-     <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="gripper_right2"/>
-     <child link="finger_right2" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
-  </joint>
-
-  <link name="finger_right2">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
 
   <joint name="attachment_joint2" type="fixed">
     <parent link="wrist3_Link2"/>
     <child link="base_link_gripper2"/>
-    <origin xyz="0 0 0.075" rpy="0 0 3.14"/>
+    <origin xyz="-0.03 0 0.075" rpy="3.14 0 1.57"/>
   </joint>
 
 
 
+<!-- End of GOAT 2 -->
 
 
 
-  <!-- BASE LINK FOR GRIPPER 3 -->
- <link name="base_link_gripper3">
-      <inertial>
-          <mass value="1.2" />
-          <origin xyz="0 0 0" />
-     	  <!--inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="100.0" iyz="0.0"
-               izz="1.0" /-->
-      	  <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
-      </inertial>
 
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG50_110.stl" scale="1 1 1"/>
-	     <!--box size="0.146 0.05 0.0735"/-->
-          </geometry>
-          <material name="grey">
-		<color rgba="0.5 0.5 0.5 1"/>
-      	  </material>
-      </visual>
 
-      <collision>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.146 0.05 0.0735"/-->
-             <mesh filename="WSG50_110.stl" scale="1 1 1"/>
-         </geometry>
-     </collision>
+
+
+
+<!--  Start of GOAT 3 -->
+
+
+  <link
+    name="base_link_gripper3">
+    <inertial>
+      <origin
+        xyz="-0.00055548 0.035313 0.012179"
+        rpy="0 0 0" />
+      <mass
+        value="0.067952" />
+      <inertia
+        ixx="2.1362E-05"
+        ixy="-1.3103E-07"
+        ixz="6.2634E-09"
+        iyy="6.8913E-06"
+        iyz="2.5903E-07"
+        izz="2.2904E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.96471 0.95294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="base_link.STL" />
+      </geometry>
+    </collision>
   </link>
-
-
-  <!-- GRIPPER LEFT -->
-
-  <joint name="base_joint_gripper_left3" type="prismatic">
-     <limit lower="-0.055" upper="-0.0027" effort="1.0" velocity="1.0"/>
-     <origin xyz="0 0 0" rpy="0 0 0" />      <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
-     <parent link="base_link_gripper3"/>
-     <child link="gripper_left3" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
+  <link
+    name="right_finger3">
+    <inertial>
+      <origin
+        xyz="0.0060787 0.029946 -0.0020409"
+        rpy="0 0 0" />
+      <mass
+        value="0.024207" />
+      <inertia
+        ixx="5.1524E-06"
+        ixy="5.7838E-07"
+        ixz="1.9253E-09"
+        iyy="3.1911E-06"
+        iyz="-5.5148E-09"
+        izz="4.6143E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="right_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74118 0.73333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="right_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_joint_gripper_right3"
+    type="prismatic">
+    <origin
+      xyz="-0.0081073 -0.007 -0.051048"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link_gripper3" />
+    <child
+      link="right_finger3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.01"
+      upper="0.065"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_finger3">
+    <inertial>
+      <origin
+        xyz="0.010829 0.029946 -4.0926E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.024207" />
+      <inertia
+        ixx="5.1524E-06"
+        ixy="5.7838E-07"
+        ixz="1.9253E-09"
+        iyy="3.1911E-06"
+        iyz="-5.5148E-09"
+        izz="4.6143E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 3.14 3.14" />
+      <geometry>
+        <mesh
+          filename="left_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.96471 0.95294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="left_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_joint_gripper_left3"
+    type="prismatic">
+    <origin
+      xyz="0.0080046 -0.005 -0.055798"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link_gripper3" />
+    <child
+      link="left_finger3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.01"
+      upper="0.065"
+      effort="0"
+      velocity="0" />
   </joint>
 
-  <transmission name="base_trans_left3" type="pr2_mechanism_model/SimpleTransmission">
-     <actuator name="base_motor_left3" />
-     <joint name="base_joint_gripper_left3" />
-     <mechanicalReduction>1</mechanicalReduction>
-     <motorTorqueConstant>1</motorTorqueConstant>
-  </transmission>
-
-  <link name="gripper_left3">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-	     <!--box size="0.0175 0.03 0.024"/-->
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-
-
-
-  <!-- LEFT FINGER -->
-
-  <joint name="guide_joint_finger_left3" type="fixed">
-     <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="gripper_left3"/>
-     <child link="finger_left3" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
-  </joint>
-
-  <link name="finger_left3">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-
-  <!-- GRIPPER RIGHT -->
-
-  <joint name="base_joint_gripper_right3" type="prismatic">
-     <limit lower="0.0027" upper="0.055" effort="1.0" velocity="1.0"/>
-     <origin xyz="0 0 0" rpy="0 0 3.14159" />
-     <parent link="base_link_gripper3"/>
-     <child link="gripper_right3" />
-     <axis xyz="-1 0 0"/>
-     <dynamics friction="100" damping="100" />
-     <limit effort="10000" velocity="100"/>
-  </joint>
-
-  <transmission name="base_trans_right3" type="pr2_mechanism_model/SimpleTransmission">
-     <actuator name="base_motor_right3" />
-     <joint name="base_joint_gripper_right3" />
-     <mechanicalReduction>1</mechanicalReduction>
-     <motorTorqueConstant>1</motorTorqueConstant>
-  </transmission>
-
-    <link name="gripper_right3">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-	     <!--box size="0.0175 0.03 0.024"/-->
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
-
-  <!-- RIGHT FINGER -->
-
-  <joint name="guide_joint_finger_right3" type="fixed">
-     <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="gripper_right3"/>
-     <child link="finger_right3" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
-  </joint>
-
-  <link name="finger_right3">
-      <inertial>
-          <mass value="0.1" />
-          <origin xyz="0 0 0" />
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-               iyy="1.0" iyz="0.0"
-               izz="1.0" />
-      </inertial>
-
-      <visual>
-          <origin xyz="0.0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-          </geometry>
-          <material name="black">
-		<color rgba="0 0 0 1"/>
-      	  </material>
-      </visual>
-
-      <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-             <mesh filename="WSG-FMF.stl" scale="0.001 0.001 0.001"/>
-         </geometry>
-     </collision>
-  </link>
 
   <joint name="attachment_joint3" type="fixed">
     <parent link="wrist3_Link3"/>
     <child link="base_link_gripper3"/>
-    <origin xyz="0 0 0.075" rpy="0 0 0"/>
+    <origin xyz="0.03 0 0.075" rpy="3.14 0 1.57"/>
   </joint>
+
+
+
+<!-- End of GOAT 3 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!--FK links-->
   <link name="fk_gripper3_link">
@@ -3194,13 +3030,13 @@
 
 
   <joint name="tactile_sensor_joint_right3" type="fixed">
-    <parent link="finger_right3"/>
+    <parent link="right_finger3"/>
     <child link="tactile_sensor1"/>
     <origin xyz="0.005 0 0.115" rpy="0 0 0"/>
   </joint>
 
   <joint name="tactile_sensor_joint_left3" type="fixed">
-    <parent link="finger_left3"/>
+    <parent link="left_finger3"/>
     <child link="tactile_sensor2"/>
     <origin xyz="0.005 0 0.115" rpy="0 0 0"/>
   </joint>
