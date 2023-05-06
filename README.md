@@ -43,6 +43,14 @@ Special thanks to: Feng Xu for creating the initial urdf files and part of the s
   pages={5632-5639},
   doi={10.1109/IROS47612.2022.9981555}}
   
+Simulator used: PyBullet
+[3] @MISC{coumans2021,
+author =   {Erwin Coumans and Yunfei Bai},
+title =    {PyBullet, a Python module for physics simulation for games, robotics and machine learning},
+howpublished = {\url{http://pybullet.org}},
+year = {2016--2021}
+}
+  
 # TELEOPERATION CONTROLS:
 ![controller_pic](https://user-images.githubusercontent.com/45216484/228128498-df4d9325-ccb0-4a3b-a78c-03ba3c310ff3.png)
 
