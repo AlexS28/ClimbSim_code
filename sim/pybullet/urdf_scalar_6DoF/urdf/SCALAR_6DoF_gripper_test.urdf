@@ -2976,19 +2976,19 @@
   <joint name="fk_gripper2_joint" type="fixed">
     <parent link="base_link_gripper2"/>
     <child link="fk_gripper2_link"/>
-    <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+    <origin xyz="0.0 0 -0.048" rpy="0 0 0"/>
   </joint>
 
   <joint name="fk_gripper1_joint" type="fixed">
     <parent link="base_link_gripper1"/>
     <child link="fk_gripper1_link"/>
-    <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+    <origin xyz="0.0 0 -0.048" rpy="0 0 0"/>
   </joint>
 
   <joint name="fk_gripper0_joint" type="fixed">
     <parent link="base_link_gripper0"/>
     <child link="fk_gripper0_link"/>
-    <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+    <origin xyz="0.0 0 -0.048" rpy="0 0 0"/>
   </joint>
 
 </robot>

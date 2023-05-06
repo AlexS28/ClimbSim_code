@@ -126,6 +126,7 @@ def activate(event_shutdown):
         pose_gripper = pose_gripper_list[leg]
         wrist_joints = wrist_joints_list[leg]
         prev_ang = prev_ang_list[leg]
+
         # update the pose, pose_gripper, and wrist_joints based on the commanded velocity
         pose, pose_gripper, wrist_joints = pybullet_object.robot.correct_cmd_limb(leg, pose, cmd_vel_arm, pose_gripper, cmd_vel_gripper, wrist_joints, command_wrist_joints)
         # build new pose_T matrix
