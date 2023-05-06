@@ -1,3 +1,5 @@
+import time
+
 from sim.pybullet.scalar_sim import pyb_sim
 from utils.urdf_relative_path import urdf_filepath_resolver
 from pathlib import Path
@@ -11,6 +13,10 @@ urdf_file_path_wall = str(Path.cwd().joinpath(urdf_file_path_wall))
 
 
 robot = pyb_sim(urdf_filename, urdf_file_path_wall, bodyFixed=True, RobotStartPos=[0.0 ,0.0 ,0.55])
-robot.step()
+
+while True:
+    robot.movetoPose(robot.HOME_POSE)
+    robot.step()
+    time.sleep(0.01)
 
 pass
