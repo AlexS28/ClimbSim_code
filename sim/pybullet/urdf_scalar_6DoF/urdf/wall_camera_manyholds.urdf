@@ -145,35 +145,35 @@
   
   <joint name="wall_hold_joint" type="fixed">
     
-    <origin xyz="-0.12 0.32 0.07" rpy="3.14 0 0.0" />
+    <origin xyz="-0.12 0.32 0.05" rpy="3.14 0 0.0" />
     <parent link="wall" />
     <child link="hold1" />
   </joint>
 
   <joint name="wall_hold_joint2" type="fixed">
     
-    <origin xyz="0.12 0.42 0.07" rpy="3.14 0 0.0" />
+    <origin xyz="0.12 0.42 0.05" rpy="3.14 0 0.0" />
     <parent link="wall" />
     <child link="hold2" />
   </joint>
 
   <joint name="wall_hold_joint3" type="fixed">
     
-    <origin xyz="0.12 -0.32 0.07" rpy="3.14 0 0.0" />
+    <origin xyz="0.12 -0.32 0.05" rpy="3.14 0 0.0" />
     <parent link="wall" />
     <child link="hold3" />
   </joint>
 
   <joint name="wall_hold_joint4" type="fixed">
     
-    <origin xyz="-0.12 -0.32 0.07" rpy="3.14 0 0.0" />
+    <origin xyz="-0.12 -0.32 0.05" rpy="3.14 0 0.0" />
     <parent link="wall" />
     <child link="hold4" />
   </joint>
 
   <joint name="wall_hold_joint5" type="fixed">
     
-    <origin xyz="-0.12 0.5 0.07" rpy="3.14 0 0.0" />
+    <origin xyz="-0.12 0.5 0.05" rpy="3.14 0 0.0" />
     <parent link="wall" />
     <child link="hold5" />
   </joint>

@@ -63,24 +63,29 @@ class pyb_sim(object):
                                    'base_joint_gripper_left2','base_joint_gripper_right2', 'base_joint_gripper_left3','base_joint_gripper_right3']
         self.motorJointNum = 32
         #self.HOME_POSE = [0.0, 0, 0, np.pi / 2, 0, 0, 0, 0, 0, np.pi / 2, 0, 0, 0, 0, 0, np.pi / 2, 0, 0, 0, 0, 0, np.pi / 2, 0, 0, 0, -0.055,0.055, -0.055,0.055, -0.055,0.055, -0.055,0.055]  #The first one is the body motor
-        self.HOME_POSE = [0.0, 0, 0, 2.0137870320351823, 0, 0, 0, 0, 0, 2.0137870320351823, 0, 0, 0, 0, 0,
-                          2.0137870320351823, 0, 0, 0, 0, 0, 2.0137870320351823, 0, 0, 0, -0.055, 0.055, -0.055,
-                          0.055, -0.055, 0.055, -0.055, 0.055]
+        self.HOME_POSE = [0.0, -0.04307892918586731, -0.29589801382778946, 2.188847118880749, 0, 0.26100000388920075, 0,
+                          -0.05838123336434364, -0.2855537499710605, 2.1837214914171503, 0, 0.30000000447034725, 0,
+                          0.08952036499977112, -0.2675979216947099, 2.1746518954402414, 0, 0.30000000447034725, 0,
+                          -0.054661452770233154, -0.24390613211111314, 2.162350166661688, 0, 0.30000000447034725, 0,  -0.01, 0.01, -0.01,
+                          0.01, -0.01, 0.01, -0.01, 0.01]
         self.DoFnum = 6
 
         # Define the bouldering holds (first 4 are the starting bouldering hold positions)
         self.bouldering_hold_leg_index = [1,2,3,0]
         #self.bouldering_holds_list_pos_str = ["-0.12 0.45 0.07", "0.12 0.32 0.07", "0.12 -0.32 0.07", "-0.12 -0.32 0.07", "-0.12 0.4 0.07"]
-        self.bouldering_holds_list_pos_str = ["-0.12 0.32 0.07", "0.12 0.42 0.07", "0.12 -0.32 0.07", "-0.12 -0.32 0.07", "-0.12 0.5 0.07"]
+        self.bouldering_holds_list_pos_str = ["-0.12 0.32 0.05", "0.12 0.42 0.05", "0.12 -0.32 0.05", "-0.12 -0.32 0.05", "-0.12 0.5 0.05"]
         self.bouldering_holds_list_pos = [list(map(float, s.split())) for s in self.bouldering_holds_list_pos_str]
         self.bouldering_holds_list_height = [0.15, 0.15, 0.15, 0.15, 0.0]
-        self.bouldering_hold_rotation = [[0.999,0.0,0.0,0],[0.999,0.0,0.0,0.0],[0.999,0.0,0.0,0.0],[0.999, 0.0, 0.0, 0]]
+        self.bouldering_hold_rotation = [[0.039861870728585824, 0.03926682690069618, -0.7206489210924194, 0.6910385518156712],
+                                         [-0.027859352095578625, 0.02837813193566332, 0.685868323276484, 0.7266382740088505],
+                                         [-0.03405419854664693, 0.030048323553792368, 0.737569208464633, 0.6737425862581399],
+                                         [0.03718019885180657, 0.036295714554165276, -0.7249381560225645, 0.6868514569111335]]
 
         self.moving_bouldering_holds_pos = copy.deepcopy(self.bouldering_holds_list_pos[0])
         self.moving_bouldering_holds_rotation = self.bouldering_hold_rotation[0]
 
         # FK ID link leg
-        self.fk_ID_link = [51,67,33,17]
+        self.fk_ID_link = [43,57,27,13]
 
         # defining joint limits for the 6 DoF case
         self.body_lim = [-0.8, 0.8]
@@ -90,7 +95,7 @@ class pyb_sim(object):
         self.wrist1_lim = [-0.2, 0.3]
         self.wrist2_lim = [-0.9, 0.9]
         self.wrist3_lim = [-1.6, 1.6]
-        self.finger_limit = [0.11]
+        self.finger_limit = [0.01]
 
         self.x_limit = [-241.66, -74.59]
         self.y_limit = [250.0, 400.0]
@@ -102,7 +107,7 @@ class pyb_sim(object):
         #which direction for x and for y to correct leg is dependent on leg number
         self.index_correct = [[1,0,0,1],[1,0,1,0],[0,1,1,0],[0,1,0,1]]
         self.task_space_limits_list = [self.x_limit, self.y_limit, self.z_limit]
-        self.gripper_limit_list = [0.0,0.11]
+        self.gripper_limit_list = [0.0,0.01]
         self.joint_limits_list = [self.wrist1_lim, self.wrist2_lim, self.wrist3_lim]
         self.joint_limits_list2 = [self.shoulder_lim, self.A_joint_lim, self.F_joint_lim, self.wrist1_lim, self.wrist2_lim, self.wrist3_lim]
 
@@ -422,7 +427,7 @@ class pyb_sim(object):
             print('\n \033[93m' + "Initializing Constraints" + '\033[0m')
             self.disable_collisions()
             # If body is not fixed, we first put the robot in a configuration compatible for the initial constraints # TODO: Consider finding this ideal configuration automatically based on initial climbing hold positions
-            self.movetoPose([0.0, -0.04307892918586731, -0.29589801382778946, 2.188847118880749, 0, 0.26100000388920075, 0, -0.05838123336434364, -0.2855537499710605, 2.1837214914171503, 0, 0.30000000447034725, 0, 0.08952036499977112, -0.2675979216947099, 2.1746518954402414, 0, 0.30000000447034725, 0, -0.054661452770233154, -0.24390613211111314, 2.162350166661688, 0, 0.30000000447034725, 0, -0.055, 0.055, -0.055, 0.055, -0.055, 0.055, -0.055, 0.055])
+            self.movetoPose([0.0, -0.04307892918586731, -0.29589801382778946, 2.188847118880749, 0, 0.26100000388920075, 0, -0.05838123336434364, -0.2855537499710605, 2.1837214914171503, 0, 0.30000000447034725, 0, 0.08952036499977112, -0.2675979216947099, 2.1746518954402414, 0, 0.30000000447034725, 0, -0.054661452770233154, -0.24390613211111314, 2.162350166661688, 0, 0.30000000447034725, 0, -0.035, 0.035, -0.035, 0.035, -0.035, 0.035, -0.035, 0.035])
             self.step()
             time.sleep(0.1)
             self.constraint_list = [0,0,0,0]
@@ -431,10 +436,11 @@ class pyb_sim(object):
                     const = self.create_constraint_init(self.bouldering_holds_list_pos[self.bouldering_hold_leg_index[leg]],leg)
                     self.constraint_list[leg] = const
             time.sleep(1.0)
-            self.enable_collisions()
+
             cur_joints = self.getJointStates()
             cur_joints_pos = cur_joints[0]
             self.HOME_POSE = cur_joints_pos
+
 
     def spawnHolds(self, holds, heights):
         # holds should be array of 4 strings holding xyz positions of each hold
@@ -548,8 +554,9 @@ class pyb_sim(object):
 
         for i in range(numLinks_wall):
             for j in range(numLinks_robot):
-                # Iterate over all pairs of bodies and turn off collisions
-                p.setCollisionFilterPair(self.wall, self.RobotId, i, j, collision)
+                if i!=2: # TODO: incorporate better collision
+                    # Iterate over all pairs of bodies and turn off collisions
+                    p.setCollisionFilterPair(self.wall, self.RobotId, i, j, collision)
 
     def disable_collisions(self):
         self.enable_collisions(0)
@@ -650,7 +657,7 @@ class pyb_sim(object):
 
 
         # Create a constraint that fixes the relative orientation between the two links
-        constraint = p.createConstraint(self.RobotId, self.fk_ID_link[leg], -1, -1, p.JOINT_POINT2POINT,
+        constraint = p.createConstraint(self.RobotId, self.fk_ID_link[leg], -1, -1, p.JOINT_FIXED,
                                         jointAxis=[0,0,0.0], parentFramePosition=[0,0,0],
                                         childFramePosition=pos, childFrameOrientation=orn)
 
@@ -662,7 +669,7 @@ class pyb_sim(object):
         pos = link_state[0]
         orn = link_state[1]
 
-        constraint = p.createConstraint(self.RobotId, self.fk_ID_link[leg], -1, -1, p.JOINT_POINT2POINT,
+        constraint = p.createConstraint(self.RobotId, self.fk_ID_link[leg], -1, -1, p.JOINT_FIXED,
                                         jointAxis=[0, 0, 0.0], parentFramePosition=[0, 0, 0],
                                         childFramePosition=pos, childFrameOrientation=orn)
 
