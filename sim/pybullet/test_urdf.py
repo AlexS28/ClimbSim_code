@@ -2,7 +2,7 @@ from sim.pybullet.scalar_sim import pyb_sim
 from utils.urdf_relative_path import urdf_filepath_resolver
 from pathlib import Path
 
-URDF_PATH = 'urdf_scalar_6DoF/urdf/SCALAR_6DoF_gripper_test.urdf'
+URDF_PATH = 'urdf_scalar_6DoF/urdf/SCALAR_6DoF_GOAT_gripper_test_camera.urdf'
 MESH_DIR = 'urdf_scalar_6DoF/meshes/'
 full_path = Path.cwd().joinpath(URDF_PATH)
 urdf_filename = urdf_filepath_resolver(full_path, MESH_DIR)
